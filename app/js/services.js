@@ -1,5 +1,5 @@
 /*!
- * Webogram v0.5.6 - messaging web application for MTProto
+ * Webogram v0.5.7.1 - messaging web application for MTProto
  * https://github.com/zhukov/webogram
  * Copyright (C) 2014 Igor Zhukov <igor.beatle@gmail.com>
  * https://github.com/zhukov/webogram/blob/master/LICENSE
@@ -1929,7 +1929,11 @@ angular.module('myApp.services', ['myApp.i18n', 'izhukov.utils'])
             apiDoc.duration = attribute.duration
             apiDoc.w = attribute.w
             apiDoc.h = attribute.h
-            if (apiDoc.thumb) {
+            if (apiDoc.thumb &&
+                attribute.pFlags.round_message) {
+              apiDoc.type = 'round'
+            }
+            else if (apiDoc.thumb) {
               apiDoc.type = 'video'
             }
             break
@@ -1971,6 +1975,7 @@ angular.module('myApp.services', ['myApp.i18n', 'izhukov.utils'])
             apiDoc.mime_type = 'video/mp4'
             break
           case 'video':
+          case 'round':
             apiDoc.mime_type = 'video/mp4'
             break
           case 'sticker':
@@ -2044,6 +2049,12 @@ angular.module('myApp.services', ['myApp.i18n', 'izhukov.utils'])
           inlineImage = true
           boxWidth = Math.min(windowW - 80, Config.Mobile ? 210 : 260)
           boxHeight = Math.min(windowH - 100, Config.Mobile ? 210 : 260)
+          break
+
+        case 'round':
+          inlineImage = true
+          boxWidth = Math.min(windowW - 80, 200)
+          boxHeight = Math.min(windowH - 100, 200)
           break
 
         default:
@@ -4387,15 +4398,33 @@ angular.module('myApp.services', ['myApp.i18n', 'izhukov.utils'])
     }
   })
 
-  .service('ChangelogNotifyService', function (Storage, $rootScope, $modal) {
+  .service('ChangelogNotifyService', function (Storage, $rootScope, $modal, $timeout, MtpApiManager, ApiUpdatesManager) {
     function checkUpdate () {
-      Storage.get('last_version').then(function (lastVersion) {
-        if (lastVersion != Config.App.version) {
-          if (lastVersion) {
-            showChangelog(lastVersion)
-          }
-          Storage.set({last_version: Config.App.version})
+      MtpApiManager.getUserID().then(function (userID) {
+        if (!userID) {
+          return
         }
+        $timeout(function () {
+          Storage.get('last_version').then(function (lastVersion) {
+            if (lastVersion != Config.App.version) {
+              if (!lastVersion) {
+                Storage.set({last_version: Config.App.version})
+              } else {
+                MtpApiManager.invokeApi('help.getAppChangelog', {
+                  prev_app_version: lastVersion
+                }, {
+                  noErrorBox: true,
+                }).then(function (updates) {
+                  if (updates._ == 'updates' && !updates.updates.length) {
+                    return false
+                  }
+                  ApiUpdatesManager.processUpdateMessage(updates)
+                  Storage.set({last_version: Config.App.version})
+                })
+              }
+            }
+          })
+        }, 5000)
       })
     }
 
@@ -4751,6 +4780,11 @@ angular.module('myApp.services', ['myApp.i18n', 'izhukov.utils'])
           !target.onclick &&
           !target.onmousedown) {
           var href = $(target).attr('href') || target.href || ''
+          if (Config.Modes.chrome_packed && 
+              href.length &&
+              $(target).attr('target') == '_blank') {
+            $(target).attr('rel', '')
+          }
           var match = href.match(tgAddrRegExp)
           if (match) {
             if (handleTgProtoAddr(match[3], true)) {
