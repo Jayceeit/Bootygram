@@ -4886,13 +4886,63 @@ a.countries_modal_search_clear {
 .md_modal_admin_badge {
   display: block;
   position: absolute;
-  width: 12px;
-  height: 12px;
-  border-radius: 6px;
-  background: #bfbfbf;
+  width: 25px;
+  height: 25px;
+  left: -10px;
+  //border-radius: 6px;
+  //background-size:12px;
+  //background: #bfbfbf;
+  .image-2x('../img/icons/admin_star.png', @width: auto, @height: auto);
+  
   color: #fff;
   &_creator {
-    background: #64c270;
+    //background: #64c270;
+    .image-2x('../img/icons/creator_star.png', @width: auto, @height: auto);
   }
 }
 
+
+@iconlistsize: 17px;
+i.icon_list {
+  
+  display: inline-block;
+  width: @iconlistsize;
+  height: @iconlistsize;
+  background-size: @iconlistsize;
+  vertical-align: top;
+  margin-right: 5px;
+  
+  &_bot{
+    .image-2x('../img/icons/list_bot.png', @width: auto, @height: auto);
+  }
+  &_user {
+    .image-2x('../img/icons/list_user.png', @width: auto, @height: auto);
+  }
+  &_channel{
+    .image-2x('../img/icons/list_channel.png', @width: auto, @height: auto);
+  }
+  &_group {
+    .image-2x('../img/icons/list_group.png', @width: auto, @height: auto);
+  }
+  &_megagroup {
+    .image-2x('../img/icons/list_group.png', @width: auto, @height: auto);
+  }
+  
+}
+.bg_color{
+  &_bot{
+    background: hsla(52, 16%, 68%, 0.5);
+  }
+  &_user {
+    background: hsla(206, 79%, 86%, 0.5);
+  }
+  &_channel{
+    background: hsla(93, 88%, 79%, 0.5);
+  }
+  &_group {
+    background: hsla(3, 41%, 77%, 0.5);
+  }
+  &_megagroup {
+    background: hsla(53, -18%, 86%, 0.5);
+  }
+}

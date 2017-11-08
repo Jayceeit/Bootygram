@@ -2999,29 +2999,65 @@ angular.module('myApp.directives', ['myApp.filters'])
 
       var peerID
       var update = function () {
+        var chat_list = false;
         if (element[0].className.indexOf('user_color_') != -1) {
           element[0].className = element[0].className.replace(/user_color_\d+/g, '')
         }
+        //console.log(element[0].parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentElement)
+        if (element[0].parentNode.parentNode.parentNode.parentNode.className.indexOf('im_dialog_wrap') != -1) {
+          var element_parent = element[0].parentNode.parentNode.parentNode.parentElement;
+          chat_list = true;
+          //console.log(element_parent)
+        }
+        
         if (peerID > 0) {
           var user = AppUsersManager.getUser(peerID)
           var prefix = username ? '@' : ''
           var key = username ? 'username' : (short ? 'rFirstName' : 'rFullName')
-
+          var icon_list =  chat_list ? user.pFlags && user.pFlags.bot ? '<i class="icon_list icon_list_bot"></i>':'<i class="icon_list icon_list_user"></i>':''
+          
           element.html(
+            icon_list +
             prefix +
-            (override[key] || user[key] || '').valueOf() +
+            (override[key] || user[key] || '').valueOf() + ' ( ' + peerID + ' )' +
             (attrs.verified && user.pFlags && user.pFlags.verified ? ' <i class="icon-verified"></i>' : '')
           )
+          
           if (attrs.color && $scope.$eval(attrs.color)) {
             element.addClass('user_color_' + user.num)
+          }else{
+            if(chat_list) {
+              if(user.pFlags && user.pFlags.bot){
+                element_parent.classList.add('bg_color_bot')
+              }else{
+                element_parent.classList.add('bg_color_user')
+              }
+            }
           }
+          
         } else {
           var chat = AppChatsManager.getChat(-peerID)
-
+          var icon_list =  chat_list ? chat._=='chat' || (chat.pFlags && chat.pFlags.megagroup) ? '<i class="icon_list icon_list_group"></i>':'<i class="icon_list icon_list_channel"></i>':''
+          //console.log(chat)
           element.html(
+            icon_list +
             (chat.rTitle || '').valueOf() +
             (attrs.verified && chat.pFlags && chat.pFlags.verified ? ' <i class="icon-verified"></i>' : '')
           )
+          if(chat_list){
+            if(chat._=='channel'){
+              if(chat.pFlags && chat.pFlags.megagroup){
+                element_parent.classList.add('bg_color_megagroup')
+              }else{
+                element_parent.classList.add('bg_color_channel')
+
+              }
+            }else{
+              element_parent.classList.add('bg_color_group')
+            }
+          }
+          
+          
         }
       }
 
