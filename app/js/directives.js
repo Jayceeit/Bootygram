@@ -3019,7 +3019,7 @@ angular.module('myApp.directives', ['myApp.filters'])
           element.html(
             icon_list +
             prefix +
-            (override[key] || user[key] || '').valueOf() + ' ( ' + peerID + ' )' +
+            (override[key] || user[key] || '').valueOf() + unescape("%20%u202A") +'( ' + peerID + ' )' +
             (attrs.verified && user.pFlags && user.pFlags.verified ? ' <i class="icon-verified"></i>' : '')
           )
           
