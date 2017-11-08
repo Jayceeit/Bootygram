@@ -1977,5 +1977,23 @@ body .nano-pane{display:none}
 body .nano>.nano-content{position:static}
 body .tg_head_peer_info{text-align:center}
 body .im_history_col_wrap,body .tg_head_main_wrap{width:auto;max-width:700px;float:none;margin:0 auto}}
-.md_modal_admin_badge{display:block;position:absolute;width:12px;height:12px;border-radius:6px;background:#bfbfbf;color:#fff}
-.md_modal_admin_badge_creator{background:#64c270}
+.md_modal_admin_badge{display:block;position:absolute;width:25px;height:25px;left:-10px;background-image:url(../img/icons/admin_star.png);background-repeat:no-repeat;color:#fff}
+.is_2x .md_modal_admin_badge{background-image:url(../img/icons/admin_star_2x.png);background-size:auto auto}
+.md_modal_admin_badge_creator{background-image:url(../img/icons/creator_star.png);background-repeat:no-repeat}
+.is_2x .md_modal_admin_badge_creator{background-image:url(../img/icons/creator_star_2x.png);background-size:auto auto}
+i.icon_list{display:inline-block;width:17px;height:17px;background-size:17px;vertical-align:top;margin-right:5px}
+i.icon_list_bot{background-image:url(../img/icons/list_bot.png);background-repeat:no-repeat}
+.is_2x i.icon_list_bot{background-image:url(../img/icons/list_bot_2x.png);background-size:auto auto}
+i.icon_list_user{background-image:url(../img/icons/list_user.png);background-repeat:no-repeat}
+.is_2x i.icon_list_user{background-image:url(../img/icons/list_user_2x.png);background-size:auto auto}
+i.icon_list_channel{background-image:url(../img/icons/list_channel.png);background-repeat:no-repeat}
+.is_2x i.icon_list_channel{background-image:url(../img/icons/list_channel_2x.png);background-size:auto auto}
+i.icon_list_group{background-image:url(../img/icons/list_group.png);background-repeat:no-repeat}
+.is_2x i.icon_list_group{background-image:url(../img/icons/list_group_2x.png);background-size:auto auto}
+i.icon_list_megagroup{background-image:url(../img/icons/list_group.png);background-repeat:no-repeat}
+.is_2x i.icon_list_megagroup{background-image:url(../img/icons/list_group_2x.png);background-size:auto auto}
+.bg_color_bot{background:rgba(138,109,59,.51)}
+.bg_color_user{background:rgba(179,222,255,.59)}
+.bg_color_channel{background:rgba(130,218,91,.6)}
+.bg_color_group{background:rgba(230,164,161,.46)}
+.bg_color_megagroup{background:rgba(192,192,192,.47)}

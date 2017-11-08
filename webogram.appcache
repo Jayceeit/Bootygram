@@ -5,10 +5,10 @@ CACHE:
 favicon.ico
 favicon_unread.ico
 service_worker.js
-js/app.js
 css/app.css
 css/desktop.css
 css/mobile.css
+js/app.js
 img/Manytabs.png
 img/Manytabs_2x.png
 img/Telegram.png
@@ -56,8 +56,13 @@ img/icons/PhotoIcons.png
 img/icons/PhotoIcons_2x.png
 img/icons/ProfileIcons.png
 img/icons/ProfileIcons_2x.png
+img/icons/admin_star.png
+img/icons/creator_star.png
 img/icons/icon.svg
-vendor/closure/long.js
+img/icons/list_bot.png
+img/icons/list_channel.png
+img/icons/list_group.png
+img/icons/list_user.png
 img/placeholders/DialogListAvatarSystem@2x.png
 img/placeholders/GroupAvatar1@2x.png
 img/placeholders/GroupAvatar2@2x.png
@@ -75,6 +80,7 @@ img/placeholders/UserAvatar7@2x.png
 img/placeholders/UserAvatar8@2x.png
 img/placeholders/VideoThumbConversation.gif
 img/placeholders/VideoThumbModal.gif
+vendor/closure/long.js
 vendor/cryptoJS/crypto.js
 vendor/jsbn/jsbn_combined.js
 vendor/leemon_bigint/bigint.js
@@ -93,4 +99,4 @@ http://*
 https://*
 *
 
-# hash: 3e9598302f446c6465856d4f71ca200b985d7fa6ea0b04a61f3062df538223fb
+# hash: d69f0cb0b7763006841734907a14572dc6fef75f4b200d89fc8a2a7f1aa494b0
