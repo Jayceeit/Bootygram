@@ -2039,8 +2039,8 @@ i.icon_list_group{background-image:url(../img/icons/list_group.png);background-r
 .is_2x i.icon_list_group{background-image:url(../img/icons/list_group_2x.png);background-size:auto auto}
 i.icon_list_megagroup{background-image:url(../img/icons/list_group.png);background-repeat:no-repeat}
 .is_2x i.icon_list_megagroup{background-image:url(../img/icons/list_group_2x.png);background-size:auto auto}
-.bg_color_bot{background:rgba(138,109,59,.51)}
-.bg_color_user{background:rgba(179,222,255,.59)}
-.bg_color_channel{background:rgba(130,218,91,.6)}
-.bg_color_group{background:rgba(230,164,161,.46)}
-.bg_color_megagroup{background:rgba(192,192,192,.47)}
+.bg_color_bot{background:rgba(186,183,160,.5)}
+.bg_color_user{background:rgba(191,223,248,.5)}
+.bg_color_channel{background:rgba(197,249,154,.5)}
+.bg_color_group{background:rgba(220,175,172,.5)}
+.bg_color_megagroup{background:rgba(219,219,219,.5)}
