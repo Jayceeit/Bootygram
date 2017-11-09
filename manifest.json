@@ -1,7 +1,7 @@
 {
   "name": "Unofficial Telegram",
-  "description": "Unofficial Telegram Web App.\nMore info & source code here: https://github.com/FabianPastor/webogram",
-  "version": "0.5.7.1",
+  "description": "Unofficial Telegram Web App.\nMore info & source code here: https://github.com/fabianpastor/webogram/tree/experimental",
+  "version": "0.6.0.1",
   "short_name": "Unofficial Telegram",
   "manifest_version": 2,
   "app": {

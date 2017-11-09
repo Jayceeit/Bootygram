@@ -25,9 +25,9 @@ img/iphone_home120.png
 img/iphone_startup.png
 img/logo_share.png
 img/sound_a.mp3
-js/app.js
 nacl/mtproto_crypto.nmf
 nacl/mtproto_crypto.pexe
+js/app.js
 img/changelog/card_wecandoit.png
 img/icons/AboutLogos.png
 img/icons/AboutLogos_2x.png
@@ -45,13 +45,9 @@ img/icons/PhotoIcons.png
 img/icons/PhotoIcons_2x.png
 img/icons/ProfileIcons.png
 img/icons/ProfileIcons_2x.png
-img/icons/admin_star.png
-img/icons/creator_star.png
+img/icons/badge_star.png
+img/icons/chat_list_icons.png
 img/icons/icon.svg
-img/icons/list_bot.png
-img/icons/list_channel.png
-img/icons/list_group.png
-img/icons/list_user.png
 img/placeholders/DialogListAvatarSystem@2x.png
 img/placeholders/GroupAvatar1@2x.png
 img/placeholders/GroupAvatar2@2x.png
@@ -84,6 +80,7 @@ vendor/closure/long.js
 vendor/cryptoJS/crypto.js
 vendor/jsbn/jsbn_combined.js
 vendor/leemon_bigint/bigint.js
+vendor/recorderjs/encoder_worker.js
 vendor/rusha/rusha.js
 vendor/angular/i18n/angular-locale_de-de.js
 vendor/angular/i18n/angular-locale_en-us.js
@@ -99,4 +96,4 @@ http://*
 https://*
 *
 
-# hash: bab7245d81f1e0c1f2da95651f4fe79bbed831d4b91157a3d4090ae0c1e7b159
+# hash: cb3bc4da8891cc7bb1acf4dbddf45bf66a2adc824487691bee562a3a3d9955be
