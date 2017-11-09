@@ -4882,22 +4882,23 @@ a.countries_modal_search_clear {
     margin: 0 auto;
   }
 }
-
+@adminbadgeicon: 20px;
 .md_modal_admin_badge {
   display: block;
   position: absolute;
-  width: 25px;
-  height: 25px;
-  left: -10px;
+  width: @adminbadgeicon;
+  height: @adminbadgeicon;
+  left: -16px;
   //border-radius: 6px;
-  //background-size:12px;
+  background-size: @adminbadgeicon;
   //background: #bfbfbf;
-  .image-2x('../img/icons/admin_star.png', @width: auto, @height: auto);
-  
-  color: #fff;
+  background-image: url('../img/icons/badge_star.png');
+  //.image-2x('../img/icons/badge_star.png', @width: auto, @height: auto);
+  background-position-y: -@adminbadgeicon;
+  //color: #fff;
   &_creator {
     //background: #64c270;
-    .image-2x('../img/icons/creator_star.png', @width: auto, @height: auto);
+    background-position-y: 0;
   }
 }
 
@@ -4911,21 +4912,23 @@ i.icon_list {
   background-size: @iconlistsize;
   vertical-align: top;
   margin-right: 5px;
+  background-image: url('../img/icons/chat_list_icons.png');
+  //.image-2x('../img/icons/chat_list_icons.png', @iconlistsize, @iconlistsize);
   
-  &_bot{
-    .image-2x('../img/icons/list_bot.png', @width: auto, @height: auto);
-  }
   &_user {
-    .image-2x('../img/icons/list_user.png', @width: auto, @height: auto);
-  }
-  &_channel{
-    .image-2x('../img/icons/list_channel.png', @width: auto, @height: auto);
+    background-position-y: 0;
   }
   &_group {
-    .image-2x('../img/icons/list_group.png', @width: auto, @height: auto);
+    background-position-y: -@iconlistsize*1;
   }
   &_megagroup {
-    .image-2x('../img/icons/list_group.png', @width: auto, @height: auto);
+    background-position-y: -@iconlistsize*2;
+  }
+  &_channel{
+    background-position-y: -@iconlistsize*3;
+  }
+  &_bot{
+    background-position-y: -@iconlistsize*4;
   }
   
 }
