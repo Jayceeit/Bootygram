@@ -1,12 +1,12 @@
 {
   "name": "Unofficial Telegram",
-  "description": "Unofficial Telegram Web App.\nMore info & source code here: https://github.com/FabianPastor/webogram",
-  "version": "0.5.7.1",
+  "description": "Unofficial Telegram Web App.\nMore info & source code here: https://github.com/fabianpastor/webogram/tree/experimental",
+  "version": "0.6.0.1",
   "type": "privileged",
   "launch_path": "/index.html",
   "developer": {
     "name": "Igor Zhukov & Viktor Oreshkin & Fabian Pastor",
-    "url": "https://github.com/FabianPastor"
+    "url": "https://github.com/fabianpastor/webogram/tree/experimental"
   },
   "installs_allowed_from": [
     "*"
@@ -44,6 +44,9 @@
     "device-storage:videos": {
     "description": "Required for videos download",
       "access": "createonly"
+    },
+    "audio-capture" : {
+    "description" : "Required to record voice messages"
     }
   },
   "activities": {

@@ -1,5 +1,5 @@
 /*!
- * Webogram v0.5.7.1 - messaging web application for MTProto
+ * Webogram v0.6.0.1 - messaging web application for MTProto
  * https://github.com/zhukov/webogram
  * Copyright (C) 2014 Igor Zhukov <igor.beatle@gmail.com>
  * https://github.com/zhukov/webogram/blob/master/LICENSE
@@ -3131,6 +3131,7 @@ angular.module('myApp.services', ['myApp.i18n', 'izhukov.utils'])
       curState.pendingPtsUpdates.sort(function (a, b) {
         return a.pts - b.pts
       })
+      // console.log(dT(), 'pop update', channelID, curState.pendingPtsUpdates)
 
       var curPts = curState.pts
       var goodPts = false
@@ -3423,7 +3424,11 @@ angular.module('myApp.services', ['myApp.i18n', 'izhukov.utils'])
       }
 
       if (update._ == 'updateChannelTooLong') {
-        getChannelDifference(channelID)
+        if (!curState.lastPtsUpdateTime ||
+            curState.lastPtsUpdateTime < tsNow() - 10000) {
+          // console.trace(dT(), 'channel too long, get diff', channelID, update)
+          getChannelDifference(channelID)
+        }
         return false
       }
 
@@ -3434,12 +3439,13 @@ angular.module('myApp.services', ['myApp.i18n', 'izhukov.utils'])
         var message = update.message
         var toPeerID = AppPeersManager.getPeerID(message.to_id)
         var fwdHeader = message.fwd_from || {}
-        if (message.from_id && !AppUsersManager.hasUser(message.from_id, message.pFlags.post) ||
-          fwdHeader.from_id && !AppUsersManager.hasUser(fwdHeader.from_id, !!fwdHeader.channel_id) ||
-          fwdHeader.channel_id && !AppChatsManager.hasChat(fwdHeader.channel_id, true) ||
-          toPeerID > 0 && !AppUsersManager.hasUser(toPeerID) ||
-          toPeerID < 0 && !AppChatsManager.hasChat(-toPeerID)) {
-          console.warn(dT(), 'Not enough data for message update', message)
+        var reason = false
+        if (message.from_id && !AppUsersManager.hasUser(message.from_id, message.pFlags.post/* || channelID*/) && (reason = 'author') ||
+            fwdHeader.from_id && !AppUsersManager.hasUser(fwdHeader.from_id, !!fwdHeader.channel_id) && (reason = 'fwdAuthor') ||
+            fwdHeader.channel_id && !AppChatsManager.hasChat(fwdHeader.channel_id, true) && (reason = 'fwdChannel') ||
+            toPeerID > 0 && !AppUsersManager.hasUser(toPeerID) && (reason = 'toPeer User') ||
+            toPeerID < 0 && !AppChatsManager.hasChat(-toPeerID) && (reason = 'toPeer Chat')) {
+          console.warn(dT(), 'Not enough data for message update', toPeerID, reason, message)
           if (channelID && AppChatsManager.hasChat(channelID)) {
             getChannelDifference(channelID)
           } else {
@@ -3478,6 +3484,8 @@ angular.module('myApp.services', ['myApp.i18n', 'izhukov.utils'])
         if (update.pts > curState.pts) {
           curState.pts = update.pts
           popPts = true
+
+          curState.lastPtsUpdateTime = tsNow()
         }
         else if (update.pts_count) {
           // console.warn(dT(), 'Duplicate update', update)
@@ -4399,7 +4407,14 @@ angular.module('myApp.services', ['myApp.i18n', 'izhukov.utils'])
   })
 
   .service('ChangelogNotifyService', function (Storage, $rootScope, $modal, $timeout, MtpApiManager, ApiUpdatesManager) {
+
+    var checked = false
+
     function checkUpdate () {
+      if (checked) {
+        return
+      }
+      checked = true
       MtpApiManager.getUserID().then(function (userID) {
         if (!userID) {
           return
@@ -4780,16 +4795,24 @@ angular.module('myApp.services', ['myApp.i18n', 'izhukov.utils'])
           !target.onclick &&
           !target.onmousedown) {
           var href = $(target).attr('href') || target.href || ''
-          if (Config.Modes.chrome_packed && 
-              href.length &&
-              $(target).attr('target') == '_blank') {
-            $(target).attr('rel', '')
-          }
           var match = href.match(tgAddrRegExp)
           if (match) {
             if (handleTgProtoAddr(match[3], true)) {
               return cancelEvent(event)
             }
+          }
+        }
+      })
+
+      $(document).on('mousedown', function (event) {
+        var target = event.target
+        if (target &&
+            target.tagName == 'A') {
+          var href = $(target).attr('href') || target.href || ''
+          if (Config.Modes.chrome_packed && 
+              href.length &&
+              $(target).attr('target') == '_blank') {
+            $(target).attr('rel', '')
           }
         }
       })
@@ -4919,7 +4942,6 @@ angular.module('myApp.services', ['myApp.i18n', 'izhukov.utils'])
           // console.warn(dT(), 'server', draft)
         } else {
           // console.warn(dT(), 'local', draft)
-          console.warn(dT(), 'local', draft)
         }
         var replyToMsgID = draft && draft.replyToMsgID
         if (replyToMsgID) {

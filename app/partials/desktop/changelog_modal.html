@@ -14,7 +14,9 @@
       </div>
       <div class="peer_modal_profile">
         <div class="peer_modal_profile_name">Unofficial Telegram Web</div>
-        <div class="peer_modal_profile_description">Version {{currentVersion}}</div>
+        <div class="peer_modal_profile_description" my-i18n="changelog_app_version">
+          <my-i18n-param name="version" ng-bind="currentVersion"></my-i18n-param>
+        </div>
       </div>
     </div>
   </div>
@@ -39,8 +41,8 @@
 
 
     <div class="changelog_footer_wrap clearfix">
-      <a class="changelog_github_link" href="https://github.com/FabianPastor/webogram" target="_blank">GitHub</a>
-      <a class="changelog_more_link" href="https://github.com/FabianPastor/webogram/blob/master/CHANGELOG.md" target="_blank" my-i18n="changelog_modal_changelog_link"></a>
+      <a class="changelog_github_link" href="https://github.com/fabianpastor/webogram/tree/experimental" target="_blank">GitHub</a>
+      <a class="changelog_more_link" href="https://github.com/FabianPastor/webogram/blob/experimental/CHANGELOG.md" target="_blank" my-i18n="changelog_modal_changelog_link"></a>
     </div>
 
   </div>
