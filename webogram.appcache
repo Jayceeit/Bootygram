@@ -73,12 +73,12 @@ js/locales/it-it.json
 js/locales/nl-nl.json
 js/locales/pt-br.json
 js/locales/ru-ru.json
-vendor/cryptoJS/crypto.js
-vendor/jsbn/jsbn_combined.js
 vendor/closure/long.js
-vendor/leemon_bigint/bigint.js
-vendor/rusha/rusha.js
+vendor/cryptoJS/crypto.js
 vendor/recorderjs/encoder_worker.js
+vendor/leemon_bigint/bigint.js
+vendor/jsbn/jsbn_combined.js
+vendor/rusha/rusha.js
 vendor/angular/i18n/angular-locale_de-de.js
 vendor/angular/i18n/angular-locale_en-us.js
 vendor/angular/i18n/angular-locale_es-es.js
@@ -92,4 +92,4 @@ http://*
 https://*
 *
 
-# hash: c28f0eedd2d1475f874010e6d0a94d6387c19108edfbb1cbee30ed820795810a
+# hash: 85a59f92183dd410688ae0cb0b5088db3081ba374ccb754d4fd3432c53977006
