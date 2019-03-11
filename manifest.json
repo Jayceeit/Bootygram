@@ -1,8 +1,8 @@
 {
-  "name": "Unofficial Telegram",
-  "description": "Unofficial Telegram Web App.\nMore info & source code here: https://github.com/fabianpastor/webogram/tree/experimental",
-  "version": "0.6.0.1",
-  "short_name": "Unofficial Telegram",
+  "name": "Telegram",
+  "description": "Telegram Web App.\nMore info & source code here: https://github.com/zhukov/webogram",
+  "version": "0.6.0",
+  "short_name": "Telegram",
   "manifest_version": 2,
   "app": {
     "background": {

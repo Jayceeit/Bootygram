@@ -1,6 +1,5 @@
 CACHE MANIFEST
 
-
 CACHE:
 favicon.ico
 favicon_unread.ico
@@ -8,13 +7,6 @@ service_worker.js
 css/app.css
 css/desktop.css
 css/mobile.css
-img/Manytabs.png
-img/Manytabs_2x.png
-img/Telegram.png
-img/Telegram.svg
-img/Telegram72.png
-img/Telegram72_2x.png
-img/Telegram_2x.png
 img/blank.gif
 img/emojisprite_0.png
 img/emojisprite_1.png
@@ -24,15 +16,23 @@ img/emojisprite_4.png
 img/iphone_home120.png
 img/iphone_startup.png
 img/logo_share.png
+img/Manytabs.png
+img/Manytabs_2x.png
 img/sound_a.mp3
+img/Telegram.png
+img/Telegram.svg
+img/Telegram72.png
+img/Telegram72_2x.png
+img/Telegram_2x.png
+js/app.js
 nacl/mtproto_crypto.nmf
 nacl/mtproto_crypto.pexe
-js/app.js
 img/changelog/card_wecandoit.png
 img/icons/AboutLogos.png
 img/icons/AboutLogos_2x.png
 img/icons/General.png
 img/icons/General_2x.png
+img/icons/icon.svg
 img/icons/IconsetSmiles.png
 img/icons/IconsetSmiles_2x.png
 img/icons/IconsetW.png
@@ -45,9 +45,6 @@ img/icons/PhotoIcons.png
 img/icons/PhotoIcons_2x.png
 img/icons/ProfileIcons.png
 img/icons/ProfileIcons_2x.png
-img/icons/badge_star.png
-img/icons/chat_list_icons.png
-img/icons/icon.svg
 img/placeholders/DialogListAvatarSystem@2x.png
 img/placeholders/GroupAvatar1@2x.png
 img/placeholders/GroupAvatar2@2x.png
@@ -76,12 +73,12 @@ js/locales/it-it.json
 js/locales/nl-nl.json
 js/locales/pt-br.json
 js/locales/ru-ru.json
-vendor/closure/long.js
 vendor/cryptoJS/crypto.js
 vendor/jsbn/jsbn_combined.js
+vendor/closure/long.js
 vendor/leemon_bigint/bigint.js
-vendor/recorderjs/encoder_worker.js
 vendor/rusha/rusha.js
+vendor/recorderjs/encoder_worker.js
 vendor/angular/i18n/angular-locale_de-de.js
 vendor/angular/i18n/angular-locale_en-us.js
 vendor/angular/i18n/angular-locale_es-es.js
@@ -90,10 +87,9 @@ vendor/angular/i18n/angular-locale_nl-nl.js
 vendor/angular/i18n/angular-locale_pt-br.js
 vendor/angular/i18n/angular-locale_ru-ru.js
 
-
 NETWORK:
 http://*
 https://*
 *
 
-# hash: cb3bc4da8891cc7bb1acf4dbddf45bf66a2adc824487691bee562a3a3d9955be
+# hash: c28f0eedd2d1475f874010e6d0a94d6387c19108edfbb1cbee30ed820795810a

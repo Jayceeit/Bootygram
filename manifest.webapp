@@ -1,12 +1,12 @@
 {
-  "name": "Unofficial Telegram",
-  "description": "Unofficial Telegram Web App.\nMore info & source code here: https://github.com/fabianpastor/webogram/tree/experimental",
-  "version": "0.6.0.1",
+  "name": "Telegram",
+  "description": "Telegram Web App.\nMore info & source code here: https://github.com/zhukov/webogram",
+  "version": "0.6.0",
   "type": "privileged",
   "launch_path": "/index.html",
   "developer": {
-    "name": "Igor Zhukov & Viktor Oreshkin & Fabian Pastor",
-    "url": "https://github.com/fabianpastor/webogram/tree/experimental"
+    "name": "Igor Zhukov",
+    "url": "https://github.com/zhukov"
   },
   "installs_allowed_from": [
     "*"
