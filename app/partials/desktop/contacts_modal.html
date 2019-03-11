@@ -46,7 +46,7 @@
                 <div class="md_modal_list_peer_photo pull-left" my-peer-photolink="::contact.userID" img-class="md_modal_list_peer_photo"></div>
                 <div class="md_modal_list_peer_name" my-peer-link="contact.userID"></div>
                   <!-- Edited Stuff is here Greg Kilmer 3/7/2019 -->
-                <p class="ng-binding" ng-bind="'@'+contact.user.username + ' ('+contact.userID+')'"></p>
+                <div class="ng-binding" ng-bind="'@'+contact.user.username + ' ('+contact.userID+')'"></div>
                 <div class="md_modal_list_peer_description" ng-switch="contact.found">
                   <span ng-switch-when="true" ng-bind="'@' + contact.user.username"></span>
                   <span ng-switch-default my-user-status="::contact.userID"></span>
