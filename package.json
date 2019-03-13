@@ -1,8 +1,8 @@
 {
-  "name": "Unofficial Telegram Web",
+  "name": "telegram",
   "description": "Unofficial Telegram Web App.\nMore info & source code here: https://github.com/fabianpastor/webogram/tree/experimental",
   "web_description": "Welcome to the Unofficial Web application of Telegram messenger. See https://github.com/fabianpastor/webogram/tree/experimental for more info.",
-  "version": "0.6.0.1",
+  "version": "0.6.0-1",
   "short_name": "Unofficial Telegram",
   "main": "app/index.html",
   "single-instance": true,
@@ -34,7 +34,9 @@
   "authors_email": "",
   "APP_ID": 2496,
   "APP_API_KEY": "8da85b0d5bfe62527e5b244c209159c3",
-  "APP_DOMAINS": ["fabianpastor.github.io"],
+  "APP_DOMAINS": [
+    "fabianpastor.github.io"
+  ],
   "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/FabianPastor/webogram/issues"
