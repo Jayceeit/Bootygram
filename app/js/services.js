@@ -1168,9 +1168,9 @@ angular.module('myApp.services', ['myApp.i18n', 'izhukov.utils'])
     }
 
     function getChannelParticipants (id, arg1, arg2, arg3) { // typeFilter, offset, limit
-      let filter=false;
-      let offset=false;
-      let limit=false;
+      var filter=false;
+      var offset=false;
+      var limit=false;
       
       if (typeof(arg1) !== 'undefined') {
         if (typeof(arg1) === 'string') filter = arg1
